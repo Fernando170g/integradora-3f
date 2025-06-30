@@ -92,6 +92,5 @@ def jugar():
 # Iniciar el juego
 jugar()
 
-import json
 
-with open ( "w", encoding= "utf-8" ) as archivo
+
