@@ -1,7 +1,7 @@
 import random
+import json
 
-# Diccionario para almacenar los tickets
-tickets = {}
+tickets2 = {}
 
 def mostrar_menu_principal():
     print("\n" + "="*50)
@@ -17,21 +17,21 @@ def alta_ticket():
     print("        CREAR NUEVO TICKET")
     print("="*40)
     
-    # Solicitar datos del ticket
+ 
     print("Por favor, ingrese los siguientes datos:")
     nombre = input("Nombre: ")
     sector = input("Sector: ")
     asunto = input("Asunto: ")
     problema = input("Problema: ")
     
-    # Generar número de ticket aleatorio
+
     numero_ticket = random.randint(1000, 9999)
     
-    # Asegurar que el número no esté repetido
+
     while numero_ticket in tickets:
         numero_ticket = random.randint(1000, 9999)
     
-    # Almacenar el ticket
+
     tickets[numero_ticket] = {
         'nombre': nombre,
         'sector': sector,
@@ -39,7 +39,7 @@ def alta_ticket():
         'problema': problema
     }
     
-    # Mostrar el ticket creado
+   
     print("\n" + "="*40)
     print("        TICKET CREADO EXITOSAMENTE")
     print("="*40)
@@ -52,7 +52,7 @@ def alta_ticket():
     print(f"¡IMPORTANTE! Recuerde su número de ticket: {numero_ticket}")
     print("-"*40)
     
-    # Preguntar si desea crear otro ticket
+  
     while True:
         respuesta = input("\n¿Desea crear otro ticket? (s/n): ").lower()
         if respuesta == 's' or respuesta == 'si':
@@ -75,7 +75,7 @@ def leer_ticket():
     
     numero_ticket = input("Ingrese el número de ticket: ")
     
-    # Convertir a entero si es posible
+ 
     if numero_ticket.isdigit():
         numero_ticket = int(numero_ticket)
         
@@ -95,7 +95,7 @@ def leer_ticket():
     else:
         print("Por favor, ingrese un número de ticket válido.")
     
-    # Preguntar si desea leer otro ticket
+
     while True:
         respuesta = input("\n¿Desea consultar otro ticket? (s/n): ").lower()
         if respuesta == 's' or respuesta == 'si':
@@ -141,6 +141,8 @@ def main():
             print("\nOpción no válida. Por favor, seleccione una opción del 1 al 3.")
             input("Presione Enter para continuar...")
 
-# Ejecutar el programa
+
 if __name__ == "__main__":
     main()
+with open ("tickets.json", "w") as tickets:
+   json.dump(tickets2,tickets) 
